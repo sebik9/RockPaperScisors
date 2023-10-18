@@ -1,3 +1,4 @@
+//deklarace proměných pro funkce
 const userChoiceInput = document.getElementById('user-choice');
 const userChoiceDisplay = document.getElementById('user-choice-display');
 const computerChoiceDisplay = document.getElementById('computer-choice-display');
