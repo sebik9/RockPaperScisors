@@ -1,6 +1,6 @@
 const userChoiceInput = document.getElementById('user-choice');
 const userChoiceDisplay = document.getElementById('user-choice-display');
-let computerChoiceDisplay = document.getElementById('computer-choice-display');
+const computerChoiceDisplay = document.getElementById('computer-choice-display');
 const resultDisplay = document.getElementById('result-display');
 
 //deklarace funkce prijima parametr userInput a porovnává jestli je sprivně zadaná hodnota 
