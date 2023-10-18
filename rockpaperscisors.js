@@ -14,13 +14,10 @@ const getComputerChoice = () => {
   switch (randomNum) {
     case 0:
       return "kámen";
-      break;
     case 1:
       return "nůžky";
-      break;
     case 2:
       return "papír";
-      break;
   }
 };
 
@@ -61,7 +58,8 @@ const playGame = () => {
   const computerChoice = getComputerChoice();
   console.log("dal jsi " + userChoice);
   console.log("počítač dal " + computerChoice);
-  console.log(determineWinner(userChoice, computerChoice));
+  const result = determineWinner(userChoice, computerChoice);
+  console.log(result);
 };
 
 playGame();
