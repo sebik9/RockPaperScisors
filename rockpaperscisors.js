@@ -1,10 +1,15 @@
+const userChoiceInput = document.getElementById('user-choice');
+const userChoiceDisplay = document.getElementById('user-choice-display');
+let computerChoiceDisplay = document.getElementById('computer-choice-display');
+const resultDisplay = document.getElementById('result-display');
+
 //deklarace funkce prijima parametr userInput a porovnává jestli je sprivně zadaná hodnota 
-const getUserChoice = userInput => {
-  userInput = userInput.toLowerCase();
-  if (userInput === "kámen" || userInput === "nůžky" || userInput === "papír" || userInput === 'bomba') {
-    return userInput;
+const getUserChoice = () => {
+  const userInput = userChoiceInput.value.toLowerCase();
+  if (userInput === "kámen" || userInput === "nůžky" || userInput === "papír") {
+    displayGameResult(userInput);
   } else {
-    console.log("zadaná hodnota musí být kámen, nůžky nebo papír");
+    alert("Zadaná hodnota musí být kámen, nůžky nebo papír.");
   }
 };
 
@@ -21,11 +26,17 @@ const getComputerChoice = () => {
   }
 };
 
+//funkce pro zobrazení výsledku hry
+const displayGameResult = userChoice => {
+  const computerChoice = getComputerChoice();
+  userChoiceDisplay.textContent = 'Tvoje volba: ' + userChoice;
+  computerChoiceDisplay.textContent = 'Volba počítače: ' + computerChoice;
+  const result = determineWinner(userChoice, computerChoice);
+  resultDisplay.textContent = 'Výsledek: ' + result;
+};
+
 //funkce která přijímá funkce jako parametr a porovnává hodnoty
 const determineWinner = (userChoice, computerChoice) => {
-  if (userChoice === 'bomba') {
-    return 'Vyhrál hráč'
-  }
   if (userChoice === computerChoice) {
     return "remíza";
   }
@@ -50,16 +61,5 @@ const determineWinner = (userChoice, computerChoice) => {
       return "vyhrál hráč";
     }
   }
+  return result;
 };
-
-//funkce která spustí hru
-const playGame = () => {
-  const userChoice = getUserChoice("bomba");
-  const computerChoice = getComputerChoice();
-  console.log("dal jsi " + userChoice);
-  console.log("počítač dal " + computerChoice);
-  const result = determineWinner(userChoice, computerChoice);
-  console.log(result);
-};
-
-playGame();
